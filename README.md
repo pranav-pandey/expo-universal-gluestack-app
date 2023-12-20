@@ -2,7 +2,7 @@
 
 A comprehensive starter kit to kick-start your next universal application using [Expo](https://expo.io/) and [gluestack-ui](https://ui.gluestack.io) - your one-stop solution for faster, smoother, and better universal apps.
 
-## 👩‍💻 Built with
+## Built with
 
 - [gluestack-ui](https://ui.gluestack.io)
 - [solito](https://solito.dev/)
