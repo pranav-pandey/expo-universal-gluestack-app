@@ -1,35 +1,60 @@
-import { StatusBar } from 'expo-status-bar';
-import { Platform, StyleSheet } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import { Platform, StyleSheet } from "react-native";
+import {
+  FlatList,
+  Image,
+  Pressable,
+  VStack,
+  Text as GlueText,
+  ScrollView,
+} from "@gluestack-ui/themed";
+import { modalData } from "@/constants/data";
 
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
+type CardProps = {
+  url: string;
+};
+
+const Card = ({ url }: CardProps) => {
+  return (
+    <VStack pl={"$4"} pt={"$4"}>
+      <Pressable
+        onPress={() => {
+          console.log("Image selector used");
+        }}
+      >
+        <Image source={{ uri: url }} h={150} w={150} alt={`image`} />
+      </Pressable>
+    </VStack>
+  );
+};
 
 export default function ModalScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Modal</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/modal.tsx" />
-
+    <ScrollView>
+      <GlueText pl={"$4"} pt={"$4"}>
+        Dec 2023
+      </GlueText>
+      <FlatList
+        data={modalData.slice(0, 4)}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        renderItem={({ item, index }) => {
+          return <Card url={item.url} />;
+        }}
+      />
+      <GlueText pl={"$4"} pt={"$4"}>
+        Unknown
+      </GlueText>
+      <FlatList
+        data={modalData.slice(4)}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        renderItem={({ item, index }) => {
+          return <Card url={item.url} />;
+        }}
+      />
       {/* Use a light status bar on iOS to account for the black space above the modal */}
-      <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
-    </View>
+      <StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />
+    </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});

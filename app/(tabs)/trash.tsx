@@ -4,12 +4,12 @@ import EditScreenInfo from "@/components/EditScreenInfo";
 import { Text, View } from "@/components/Themed";
 import { Text as GlueText, HStack } from "@gluestack-ui/themed";
 
-export default function Home() {
+export default function Trash() {
   return (
     <View style={styles.container}>
       <HStack>
         <GlueText bold size="2xl">
-          Capsyl Home Screen
+          Capsyl Trash Screen
         </GlueText>
       </HStack>
       <View
@@ -18,8 +18,7 @@ export default function Home() {
         darkColor="rgba(255,255,255,0.1)"
       />
       <GlueText pb={"$4"}>
-        Example below to use default React Native stylesheets and components.
-        This text is using GlueStack UI Text component
+        Example below to use default React Native stylesheets and components
       </GlueText>
       <EditScreenInfo path="app/(tabs)/index.tsx" />
     </View>
