@@ -22,7 +22,7 @@ git clone git@git.geekyants.com:pranav/expo-v3-universal-gluestack-app.git
 git clone https://git.geekyants.com/pranav/expo-v3-universal-gluestack-app.git
 
 # Install dependencies
-npm install
+npx expo install
 
 # To start expo development server
 npx expo start
