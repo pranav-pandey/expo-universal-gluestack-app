@@ -5,6 +5,7 @@ import {
   FlatList,
   Pressable,
   ScrollView,
+  Box,
 } from "@gluestack-ui/themed";
 import React, { useState } from "react";
 import GlueModal from "@/components/GlueModal";
@@ -38,30 +39,33 @@ const Card = ({ url, desc }: CardProps) => {
 
 export default function Genius() {
   return (
-    <ScrollView>
-      <GlueText pl={"$4"} pt={"$2"} bold>
-        Smart Editors
-      </GlueText>
-      <FlatList
-        data={editors.slice(0, 4)}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        renderItem={({ item, index }) => {
-          return <Card url={item.url} desc={item.subHeading} />;
-        }}
-      />
-      {/* <Divider /> */}
-      <GlueText pl={"$4"} pt={"$2"} bold>
-        Styles
-      </GlueText>
-      <FlatList
-        data={editors.slice(4)}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        renderItem={({ item, index }) => {
-          return <Card url={item.url} desc={item.subHeading} />;
-        }}
-      />
+    <ScrollView
+    >
+      <Box flex={1} justifyContent={"center"} pt={"$8"}>
+        <GlueText pl={"$4"} pt={"$2"} bold>
+          Smart Editors
+        </GlueText>
+        <FlatList
+          data={editors.slice(0, 4)}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          renderItem={({ item, index }) => {
+            return <Card url={item.url} desc={item.subHeading} />;
+          }}
+        />
+        {/* <Divider /> */}
+        <GlueText pl={"$4"} pt={"$2"} bold>
+          Styles
+        </GlueText>
+        <FlatList
+          data={editors.slice(4)}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          renderItem={({ item, index }) => {
+            return <Card url={item.url} desc={item.subHeading} />;
+          }}
+        />
+      </Box>
     </ScrollView>
   );
 }

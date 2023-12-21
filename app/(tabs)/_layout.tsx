@@ -1,13 +1,14 @@
 import React from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import { Link, Tabs } from "expo-router";
-import { Platform, Pressable } from "react-native";
+import { Tabs } from "expo-router";
+import { Platform } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Drawer } from "expo-router/drawer";
 
 import Colors from "@/constants/Colors";
 import { useColorScheme } from "@/components/useColorScheme";
 import { useClientOnlyValue } from "@/components/useClientOnlyValue";
+import { CustomDrawer } from "@/components/CustomDrawer";
 
 function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>["name"];
@@ -24,66 +25,23 @@ export default function TabLayout() {
       <GestureHandlerRootView style={{ flex: 1 }}>
         <Drawer
           screenOptions={{
-            // drawerType: "permanent",
+            drawerType: "permanent",
             drawerStyle: {
               backgroundColor: "#1e293b",
+              width: 250,
             },
+            headerShown: false,
+            headerLeft: false,
             drawerActiveBackgroundColor: "#F6F6F7",
             drawerActiveTintColor: "#F6F6F7",
           }}
+          drawerContent={(props) => <CustomDrawer {...props} />}
         >
-          <Drawer.Screen
-            name="index"
-            options={{
-              drawerLabel: "Home",
-              title: "Home",
-              drawerActiveTintColor: "#111827",
-              drawerInactiveTintColor: "#a8a29e",
-              drawerLabelStyle: { marginTop: 3 },
-              drawerIcon: ({ color }) => (
-                <TabBarIcon name="home" color={color} />
-              ),
-            }}
-          />
-          <Drawer.Screen
-            name="genius"
-            options={{
-              drawerLabel: "Genius",
-              title: "Genius",
-              drawerActiveTintColor: "#111827",
-              drawerInactiveTintColor: "#a8a29e",
-              drawerLabelStyle: { marginTop: 3 },
-              drawerIcon: ({ color }) => (
-                <TabBarIcon name="list" color={color} />
-              ),
-            }}
-          />
-          <Drawer.Screen
-            name="explore"
-            options={{
-              drawerLabel: "Explore",
-              title: "Explore",
-              drawerActiveTintColor: "#111827",
-              drawerInactiveTintColor: "#a8a29e",
-              drawerLabelStyle: { marginTop: 3 },
-              drawerIcon: ({ color }) => (
-                <TabBarIcon name="search" color={color} />
-              ),
-            }}
-          />
-          <Drawer.Screen
-            name="trash"
-            options={{
-              drawerLabel: "Trash",
-              title: "Trash",
-              drawerActiveTintColor: "#111827",
-              drawerInactiveTintColor: "#a8a29e",
-              drawerLabelStyle: { marginTop: 3 },
-              drawerIcon: ({ color }) => (
-                <TabBarIcon name="trash" color={color} />
-              ),
-            }}
-          />
+          <Drawer.Screen name="index" options={{ title: "Home" }} />
+          <Drawer.Screen name="explore" options={{ title: "Explore" }} />
+          <Drawer.Screen name="documents" options={{ title: "Documents" }} />
+          <Drawer.Screen name="genius" options={{ title: "Genius" }} />
+          <Drawer.Screen name="trash" options={{ title: "Trash" }} />
         </Drawer>
       </GestureHandlerRootView>
     );
@@ -102,27 +60,6 @@ export default function TabLayout() {
         options={{
           title: "Capsyl",
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? "light"].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="genius"
-        options={{
-          title: "Genius",
-          tabBarIcon: ({ color }) => <TabBarIcon name="list" color={color} />,
         }}
       />
       <Tabs.Screen
@@ -132,6 +69,22 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <TabBarIcon name="search" color={color} />,
         }}
       />
+      <Tabs.Screen
+        name="documents"
+        options={{
+          title: "Documents",
+          tabBarIcon: ({ color }) => <TabBarIcon name="file" color={color} />,
+        }}
+      />
+
+      <Tabs.Screen
+        name="genius"
+        options={{
+          title: "Genius",
+          tabBarIcon: ({ color }) => <TabBarIcon name="star-o" color={color} />,
+        }}
+      />
+
       <Tabs.Screen
         name="trash"
         options={{

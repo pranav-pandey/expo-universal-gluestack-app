@@ -2,26 +2,25 @@ import { StyleSheet } from "react-native";
 
 import EditScreenInfo from "@/components/EditScreenInfo";
 import { Text, View } from "@/components/Themed";
-import { Text as GlueText, VStack } from "@gluestack-ui/themed";
+import { Text as GlueText, HStack } from "@gluestack-ui/themed";
 
-export default function Home() {
+export default function Documents() {
   return (
     <View style={styles.container}>
-      <VStack justifyContent="center" alignItems="center">
+      <HStack>
         <GlueText bold size="2xl">
-          Capsyl Home Screen
+          Capsyl Documents Screen
         </GlueText>
-        <View
-          style={styles.separator}
-          lightColor="#eee"
-          darkColor="rgba(255,255,255,0.1)"
-        />
-        <GlueText p={"$4"}>
-          Example below to use default React Native stylesheets and components.
-          This text is using GlueStack UI Text component
-        </GlueText>
-        <EditScreenInfo path="app/(tabs)/index.tsx" />
-      </VStack>
+      </HStack>
+      <View
+        style={styles.separator}
+        lightColor="#eee"
+        darkColor="rgba(255,255,255,0.1)"
+      />
+      <GlueText pb={"$4"}>
+        Example below to use default React Native stylesheets and components
+      </GlueText>
+      <EditScreenInfo path="app/(tabs)/index.tsx" />
     </View>
   );
 }
