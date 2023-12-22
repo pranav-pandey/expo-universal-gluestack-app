@@ -49,7 +49,7 @@ const GlueModal = ({ showModal, setShowModal }) => {
       <ModalBackdrop />
       <ModalContent maxWidth={"80%"} maxHeight={"80%"}>
         <ModalHeader>
-          <Heading size="lg">Select an Image</Heading>
+          <Heading size="lg">Select an Image here</Heading>
           <ModalCloseButton>
             <Icon as={CloseIcon} />
           </ModalCloseButton>

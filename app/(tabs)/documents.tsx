@@ -2,9 +2,26 @@ import { StyleSheet } from "react-native";
 
 import EditScreenInfo from "@/components/EditScreenInfo";
 import { Text, View } from "@/components/Themed";
-import { Text as GlueText, HStack } from "@gluestack-ui/themed";
+import {
+  Text as GlueText,
+  HStack,
+  Select,
+  SelectTrigger,
+  SelectInput,
+  SelectIcon,
+  Icon,
+  SelectPortal,
+  SelectBackdrop,
+  SelectContent,
+  SelectDragIndicator,
+  SelectDragIndicatorWrapper,
+  SelectItem,
+  ChevronDownIcon,
+} from "@gluestack-ui/themed";
+import { useState } from "react";
 
 export default function Documents() {
+  const [selectValue, setSelectValue] = useState("");
   return (
     <View style={styles.container}>
       <HStack>
@@ -17,6 +34,35 @@ export default function Documents() {
         lightColor="#eee"
         darkColor="rgba(255,255,255,0.1)"
       />
+      <Select
+        selectedValue={selectValue}
+        onValueChange={(value) => {
+          setSelectValue(value);
+        }}
+      >
+        <SelectTrigger variant="outline" size="md" m={8} w={220}>
+          <SelectInput placeholder="Select option" />
+          <SelectIcon>
+            <Icon as={ChevronDownIcon} />
+          </SelectIcon>
+        </SelectTrigger>
+        <SelectPortal>
+          <SelectBackdrop />
+          <SelectContent>
+            <SelectDragIndicatorWrapper>
+              <SelectDragIndicator />
+            </SelectDragIndicatorWrapper>
+            <SelectItem label="UX Research" value="ux" />
+            <SelectItem label="Web Development" value="web" />
+            <SelectItem
+              label="Cross Platform Development Process"
+              value="Cross Platform Development Process"
+            />
+            <SelectItem label="UI Designing" value="ui" isDisabled={true} />
+            <SelectItem label="Backend Development" value="backend" />
+          </SelectContent>
+        </SelectPortal>
+      </Select>
       <GlueText pb={"$4"}>
         Example below to use default React Native stylesheets and components
       </GlueText>

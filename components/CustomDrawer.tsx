@@ -84,7 +84,7 @@ export const CustomDrawer = (props) => {
               <TabBarIcon name="file" color={focused ? "#61dafb" : color} />
             )}
           />
-          <Divider py={0.5} m={"$2"} w={"80%"} bgColor="#a8a29e" />
+          <Divider py={0.5} m={"$2"} w={"90%"} bgColor="#a8a29e" />
           <DrawerItem
             label="Genius"
             focused={

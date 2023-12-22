@@ -18,13 +18,13 @@ type CardProps = {
 };
 
 const Card = ({ url, desc }: CardProps) => {
-  // const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   return (
     <VStack pl={"$4"} pt={"$4"}>
       <Pressable
         onPress={() => {
-          router.push("/modal");
-          // setShowModal(true);
+          // router.push("/modal");
+          setShowModal(true);
         }}
       >
         <Image source={{ uri: url }} h={150} w={150} alt={`image`} />
@@ -32,15 +32,14 @@ const Card = ({ url, desc }: CardProps) => {
           {desc}
         </GlueText>
       </Pressable>
-      {/* <GlueModal showModal={showModal} setShowModal={setShowModal} /> */}
+      <GlueModal showModal={showModal} setShowModal={setShowModal} />
     </VStack>
   );
 };
 
 export default function Genius() {
   return (
-    <ScrollView
-    >
+    <ScrollView>
       <Box flex={1} justifyContent={"center"} pt={"$8"}>
         <GlueText pl={"$4"} pt={"$2"} bold>
           Smart Editors
