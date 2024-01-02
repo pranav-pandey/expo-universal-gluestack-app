@@ -5,7 +5,6 @@ A comprehensive starter kit to kick-start your next universal application using 
 ## Built with
 
 - [gluestack-ui](https://ui.gluestack.io)
-- [solito](https://solito.dev/)
 - [Expo](https://expo.io/)
 - [Expo Router V3](https://blog.expo.dev/expo-router-v3-beta-is-now-available-eab52baf1e3e)
 - [TypeScript](https://www.typescriptlang.org/)
