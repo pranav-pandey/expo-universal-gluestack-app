@@ -1,8 +1,6 @@
 import { StyleSheet } from "react-native";
-import EditScreenInfo from "@/components/EditScreenInfo";
-import { Text, View } from "@/components/Themed";
+import { View } from "@/components/Themed";
 import {
-  Box,
   Button,
   Text as GlueText,
   HStack,
@@ -31,7 +29,7 @@ export default function Explore() {
     <View style={styles.container}>
       <HStack>
         <GlueText bold size="2xl">
-          Capsyl Explore Screen
+          Expo V3 Explore Screen
         </GlueText>
       </HStack>
       <View

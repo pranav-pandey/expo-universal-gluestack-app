@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
 import EditScreenInfo from "@/components/EditScreenInfo";
-import { Text, View } from "@/components/Themed";
+import { View } from "@/components/Themed";
 import { Text as GlueText, HStack } from "@gluestack-ui/themed";
 
 export default function Trash() {
@@ -9,7 +9,7 @@ export default function Trash() {
     <View style={styles.container}>
       <HStack>
         <GlueText bold size="2xl">
-          Capsyl Trash Screen
+          Expo V3 Trash Screen
         </GlueText>
       </HStack>
       <View
@@ -20,7 +20,7 @@ export default function Trash() {
       <GlueText pb={"$4"}>
         Example below to use default React Native stylesheets and components
       </GlueText>
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
+      <EditScreenInfo path="app/(app)/(tabs)/index.tsx" />
     </View>
   );
 }

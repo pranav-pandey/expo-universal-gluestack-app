@@ -1,6 +1,6 @@
 import React from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import { Tabs } from "expo-router";
+import { Tabs, router } from "expo-router";
 import { Platform } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Drawer } from "expo-router/drawer";
@@ -9,6 +9,9 @@ import Colors from "@/constants/Colors";
 import { useColorScheme } from "@/components/useColorScheme";
 import { useClientOnlyValue } from "@/components/useClientOnlyValue";
 import { CustomDrawer } from "@/components/CustomDrawer";
+import { Button, Text as GlueText } from "@gluestack-ui/themed";
+import { useUser } from "@/helpers/useUser";
+import { useSession } from "@/helpers/ctx";
 
 function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>["name"];
@@ -19,6 +22,8 @@ function TabBarIcon(props: {
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+  const { state, dispatch } = useUser();
+  const { signOut } = useSession();
 
   if (Platform.OS === "web") {
     return (
@@ -53,12 +58,31 @@ export default function TabLayout() {
         // Disable the static render of the header on web
         // to prevent a hydration error in React Navigation v6.
         headerShown: useClientOnlyValue(false, true),
+        headerRight: () => {
+          return (
+            <Button
+              m={"$1"}
+              size="xs"
+              action="outline"
+              onPress={() => {
+                signOut();
+                dispatch({ type: "LOGOUT" });
+                // Navigate after logging out
+                router.replace("/");
+              }}
+            >
+              <GlueText size="sm" color="$white">
+                Logout
+              </GlueText>
+            </Button>
+          );
+        },
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
-          title: "Capsyl",
+          title: "Expo V3",
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
         }}
       />

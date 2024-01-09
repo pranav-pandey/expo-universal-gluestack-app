@@ -1,23 +1,15 @@
 import React from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import { Tabs } from "expo-router";
-import { Platform, Pressable } from "react-native";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { Drawer } from "expo-router/drawer";
-
-import Colors from "@/constants/Colors";
-import { useColorScheme } from "@/components/useColorScheme";
-import { useClientOnlyValue } from "@/components/useClientOnlyValue";
-
-import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
+import { DrawerItem } from "@react-navigation/drawer";
 import {
   Box,
   Divider,
-  Heading,
   Text as GlueText,
   LinkText,
   Link,
+  Pressable,
 } from "@gluestack-ui/themed";
+import { useSession } from "@/helpers/ctx";
 
 function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>["name"];
@@ -26,18 +18,20 @@ function TabBarIcon(props: {
   return <FontAwesome size={18} style={{ marginBottom: -3 }} {...props} />;
 }
 export const CustomDrawer = (props) => {
+  const { signOut } = useSession();
+
   return (
     <Box {...props} style={{ flex: 1 }}>
       <Box
         flex={1}
         justifyContent="space-between"
         flexDirection="column"
-        h={"100%"}
+        height={"100%"}
       >
         <Box flex={2}>
           <Box justifyContent="center" alignItems="center">
-            <GlueText size="6xl" p={"$8"} color="#F6F6F7">
-              capsyl
+            <GlueText size="5xl" p={"$8"} color="#F6F6F7">
+              Expo V3
             </GlueText>
           </Box>
           <DrawerItem
@@ -120,6 +114,16 @@ export const CustomDrawer = (props) => {
             alignItems="flex-start"
             paddingHorizontal={"$2"}
           >
+            <Pressable
+              onPress={() => {
+                signOut();
+              }}
+            >
+              <GlueText size="xs" color="#a8a29e" paddingRight={"$2"} underline>
+                Logout
+              </GlueText>
+            </Pressable>
+
             <Link isExternal href="https://gluestack.io/">
               <LinkText size="xs" pr={"$2"} color="#a8a29e">
                 Terms
@@ -144,7 +148,7 @@ export const CustomDrawer = (props) => {
             </Link>
           </Box>
           <GlueText size="xs" color="#a8a29e" paddingHorizontal={"$2"}>
-            @ Synchronoss 2023
+            @ Pranav Pandey
           </GlueText>
           <GlueText size="xs" color="#a8a29e" paddingHorizontal={"$2"}>
             All Rights Reserved

@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
 import EditScreenInfo from "@/components/EditScreenInfo";
-import { Text, View } from "@/components/Themed";
+import { View } from "@/components/Themed";
 import { Text as GlueText, VStack } from "@gluestack-ui/themed";
 
 export default function Home() {
@@ -9,7 +9,7 @@ export default function Home() {
     <View style={styles.container}>
       <VStack justifyContent="center" alignItems="center">
         <GlueText bold size="2xl">
-          Capsyl Home Screen
+          Expo V3 Home Screen
         </GlueText>
         <View
           style={styles.separator}
@@ -20,7 +20,7 @@ export default function Home() {
           Example below to use default React Native stylesheets and components.
           This text is using GlueStack UI Text component
         </GlueText>
-        <EditScreenInfo path="app/(tabs)/index.tsx" />
+        <EditScreenInfo path="app/(app)/(tabs)/index.tsx" />
       </VStack>
     </View>
   );
