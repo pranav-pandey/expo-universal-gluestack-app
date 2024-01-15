@@ -35,7 +35,7 @@ export default function SignIn() {
           Expo V3
         </GlueText>
       </Box>
-      <FormControl minWidth="$80">
+      {/* <FormControl minWidth="$80">
         <FormControlLabel>
           <FormControlLabelText>Username</FormControlLabelText>
         </FormControlLabel>
@@ -73,7 +73,7 @@ export default function SignIn() {
             Choose one time slot for the meeting
           </FormControlErrorText>
         </FormControlError>
-      </FormControl>
+      </FormControl> */}
 
       <Button
         m={"$2"}
