@@ -68,7 +68,7 @@ export default function TabLayout() {
                 signOut();
                 dispatch({ type: "LOGOUT" });
                 // Navigate after logging out
-                router.replace("/");
+                // router.replace("/");
               }}
             >
               <GlueText size="sm" color="$white">
