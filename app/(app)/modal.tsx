@@ -1,11 +1,11 @@
 import { StatusBar } from "expo-status-bar";
-import { Platform, StyleSheet } from "react-native";
+import { Platform } from "react-native";
 import {
   FlatList,
   Image,
   Pressable,
   VStack,
-  Text as GlueText,
+  Text,
   ScrollView,
 } from "@gluestack-ui/themed";
 import { modalData } from "@/constants/data";
@@ -31,9 +31,9 @@ const Card = ({ url }: CardProps) => {
 export default function ModalScreen() {
   return (
     <ScrollView>
-      <GlueText pl={"$4"} pt={"$4"}>
+      <Text pl={"$4"} pt={"$4"}>
         Dec 2023
-      </GlueText>
+      </Text>
       <FlatList
         data={modalData.slice(0, 4)}
         horizontal
@@ -42,14 +42,16 @@ export default function ModalScreen() {
           return <Card url={item.url} />;
         }}
       />
-      <GlueText pl={"$4"} pt={"$4"}>
+      <Text pl={"$4"} pt={"$4"}>
         Unknown
-      </GlueText>
+      </Text>
       <FlatList
         data={modalData.slice(4)}
         horizontal
         showsHorizontalScrollIndicator={false}
         renderItem={({ item, index }) => {
+          console.log(item, "itemm");
+
           return <Card url={item.url} />;
         }}
       />

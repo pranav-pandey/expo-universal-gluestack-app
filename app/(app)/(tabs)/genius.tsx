@@ -1,7 +1,7 @@
 import {
   Image,
   VStack,
-  Text as GlueText,
+  Text,
   FlatList,
   Pressable,
   ScrollView,
@@ -9,7 +9,6 @@ import {
 } from "@gluestack-ui/themed";
 import React, { useState } from "react";
 import GlueModal from "@/components/GlueModal";
-import { router } from "expo-router";
 import { editors } from "@/constants/data";
 
 type CardProps = {
@@ -28,9 +27,9 @@ const Card = ({ url, desc }: CardProps) => {
         }}
       >
         <Image source={{ uri: url }} h={150} w={150} alt={`image`} />
-        <GlueText mt={"$2"} mb={"$2"}>
+        <Text mt={"$2"} mb={"$2"}>
           {desc}
-        </GlueText>
+        </Text>
       </Pressable>
       <GlueModal showModal={showModal} setShowModal={setShowModal} />
     </VStack>
@@ -41,9 +40,9 @@ export default function Genius() {
   return (
     <ScrollView>
       <Box flex={1} justifyContent={"center"} pt={"$8"}>
-        <GlueText pl={"$4"} pt={"$2"} bold>
+        <Text pl={"$4"} pt={"$2"} bold>
           Smart Editors
-        </GlueText>
+        </Text>
         <FlatList
           data={editors.slice(0, 4)}
           horizontal
@@ -53,9 +52,9 @@ export default function Genius() {
           }}
         />
         {/* <Divider /> */}
-        <GlueText pl={"$4"} pt={"$2"} bold>
+        <Text pl={"$4"} pt={"$2"} bold>
           Styles
-        </GlueText>
+        </Text>
         <FlatList
           data={editors.slice(4)}
           horizontal

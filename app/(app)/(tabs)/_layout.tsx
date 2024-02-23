@@ -9,7 +9,7 @@ import Colors from "@/constants/Colors";
 import { useColorScheme } from "@/components/useColorScheme";
 import { useClientOnlyValue } from "@/components/useClientOnlyValue";
 import { CustomDrawer } from "@/components/CustomDrawer";
-import { Button, Text as GlueText } from "@gluestack-ui/themed";
+import { Button, Text } from "@gluestack-ui/themed";
 import { useUser } from "@/helpers/useUser";
 import { useSession } from "@/helpers/ctx";
 
@@ -71,9 +71,9 @@ export default function TabLayout() {
                 // router.replace("/");
               }}
             >
-              <GlueText size="sm" color="$white">
+              <Text size="sm" color="$white">
                 Logout
-              </GlueText>
+              </Text>
             </Button>
           );
         },
