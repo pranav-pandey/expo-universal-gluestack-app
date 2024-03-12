@@ -6,6 +6,7 @@ import {
   Pressable,
   ScrollView,
   Box,
+  Divider,
 } from "@gluestack-ui/themed";
 import React, { useState } from "react";
 import GlueModal from "@/components/GlueModal";
@@ -36,12 +37,12 @@ const Card = ({ url, desc }: CardProps) => {
   );
 };
 
-export default function Genius() {
+export default function List() {
   return (
     <ScrollView>
       <Box flex={1} justifyContent={"center"} pt={"$8"}>
         <Text pl={"$4"} pt={"$2"} bold>
-          Smart Editors
+          Clickable list
         </Text>
         <FlatList
           data={editors.slice(0, 4)}
@@ -51,18 +52,7 @@ export default function Genius() {
             return <Card url={item.url} desc={item.subHeading} />;
           }}
         />
-        {/* <Divider /> */}
-        <Text pl={"$4"} pt={"$2"} bold>
-          Styles
-        </Text>
-        <FlatList
-          data={editors.slice(4)}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          renderItem={({ item, index }) => {
-            return <Card url={item.url} desc={item.subHeading} />;
-          }}
-        />
+        <Divider />
       </Box>
     </ScrollView>
   );

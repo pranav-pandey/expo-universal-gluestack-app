@@ -36,13 +36,15 @@ export default function Documents() {
       <Select
         selectedValue={selectValue}
         onValueChange={(value) => {
+          console.log(value, "value");
+
           setSelectValue(value);
         }}
       >
         <SelectTrigger variant="outline" size="md" m={8} w={220}>
           <SelectInput placeholder="Select option" />
           <SelectIcon>
-            <Icon as={ChevronDownIcon} />
+            <Icon as={ChevronDownIcon} color="grey" m="$4" />
           </SelectIcon>
         </SelectTrigger>
         <SelectPortal>
@@ -51,13 +53,13 @@ export default function Documents() {
             <SelectDragIndicatorWrapper>
               <SelectDragIndicator />
             </SelectDragIndicatorWrapper>
-            <SelectItem label="UX Research" value="ux" />
+            <SelectItem label="UX Research" value="ux" isDisabled={true} />
             <SelectItem label="Web Development" value="web" />
             <SelectItem
               label="Cross Platform Development Process"
               value="Cross Platform Development Process"
             />
-            <SelectItem label="UI Designing" value="ui" isDisabled={true} />
+            <SelectItem label="UI Designing" value="ui" />
             <SelectItem label="Backend Development" value="backend" />
           </SelectContent>
         </SelectPortal>

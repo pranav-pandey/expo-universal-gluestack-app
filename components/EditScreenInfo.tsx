@@ -6,7 +6,7 @@ import { Text, Box } from "@gluestack-ui/themed";
 export default function EditScreenInfo({ path }: { path: string }) {
   return (
     <Box>
-      <Box alignItems="center" marginHorizontal="$4">
+      <Box alignItems="center" mh="$4">
         <Text
           textAlign="center"
           $light-color="rgba(0,0,0,0.8)"

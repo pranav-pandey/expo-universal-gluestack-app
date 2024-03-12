@@ -45,7 +45,7 @@ export default function TabLayout() {
           <Drawer.Screen name="index" options={{ title: "Home" }} />
           <Drawer.Screen name="explore" options={{ title: "Explore" }} />
           <Drawer.Screen name="documents" options={{ title: "Documents" }} />
-          <Drawer.Screen name="genius" options={{ title: "Genius" }} />
+          <Drawer.Screen name="list" options={{ title: "List" }} />
           <Drawer.Screen name="trash" options={{ title: "Trash" }} />
         </Drawer>
       </GestureHandlerRootView>
@@ -102,9 +102,9 @@ export default function TabLayout() {
       />
 
       <Tabs.Screen
-        name="genius"
+        name="list"
         options={{
-          title: "Genius",
+          title: "List",
           tabBarIcon: ({ color }) => <TabBarIcon name="star-o" color={color} />,
         }}
       />

@@ -80,14 +80,14 @@ export const CustomDrawer = (props) => {
           />
           <Divider py={0.5} m={"$2"} w={"90%"} bgColor="#a8a29e" />
           <DrawerItem
-            label="Genius"
+            label="List"
             focused={
               props.state.index ===
-              props.state.routes.findIndex((e) => e.name === "genius")
+              props.state.routes.findIndex((e) => e.name === "list")
             }
             activeTintColor="#FFFFFF"
             inactiveTintColor="#a8a29e"
-            onPress={() => props.navigation.navigate("genius")}
+            onPress={() => props.navigation.navigate("list")}
             icon={({ focused, color }) => (
               <TabBarIcon name="star-o" color={focused ? "#61dafb" : color} />
             )}
