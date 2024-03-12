@@ -1,7 +1,7 @@
 import React from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Tabs, router } from "expo-router";
-import { Platform } from "react-native";
+import { Platform, useWindowDimensions } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Drawer } from "expo-router/drawer";
 
@@ -24,8 +24,9 @@ export default function TabLayout() {
   const colorScheme = useColorScheme();
   const { state, dispatch } = useUser();
   const { signOut } = useSession();
+  const { width } = useWindowDimensions();
 
-  if (Platform.OS === "web") {
+  if (Platform.OS === "web" && width > 500) {
     return (
       <GestureHandlerRootView style={{ flex: 1 }}>
         <Drawer
@@ -46,7 +47,7 @@ export default function TabLayout() {
           <Drawer.Screen name="explore" options={{ title: "Explore" }} />
           <Drawer.Screen name="documents" options={{ title: "Documents" }} />
           <Drawer.Screen name="list" options={{ title: "List" }} />
-          <Drawer.Screen name="trash" options={{ title: "Trash" }} />
+          {/* <Drawer.Screen name="trash" options={{ title: "Trash" }} /> */}
         </Drawer>
       </GestureHandlerRootView>
     );
@@ -82,7 +83,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Expo V3",
+          title: "Home",
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
         }}
       />
@@ -109,13 +110,13 @@ export default function TabLayout() {
         }}
       />
 
-      <Tabs.Screen
+      {/* <Tabs.Screen
         name="trash"
         options={{
           title: "Trash",
           tabBarIcon: ({ color }) => <TabBarIcon name="trash" color={color} />,
         }}
-      />
+      /> */}
     </Tabs>
   );
 }

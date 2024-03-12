@@ -93,7 +93,7 @@ export const CustomDrawer = (props) => {
             )}
           />
 
-          <DrawerItem
+          {/* <DrawerItem
             label="Trash"
             focused={
               props.state.index ===
@@ -105,7 +105,7 @@ export const CustomDrawer = (props) => {
             icon={({ focused, color }) => (
               <TabBarIcon name="trash" color={focused ? "#61dafb" : color} />
             )}
-          />
+          /> */}
         </Box>
         <Box flex={1} justifyContent="flex-end" p={"$2"}>
           <Box
