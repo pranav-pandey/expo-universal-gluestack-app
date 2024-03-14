@@ -1,7 +1,7 @@
 import React from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Tabs, router } from "expo-router";
-import { Platform } from "react-native";
+import { Platform, useWindowDimensions } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Drawer } from "expo-router/drawer";
 
@@ -9,7 +9,7 @@ import Colors from "@/constants/Colors";
 import { useColorScheme } from "@/components/useColorScheme";
 import { useClientOnlyValue } from "@/components/useClientOnlyValue";
 import { CustomDrawer } from "@/components/CustomDrawer";
-import { Button, Text as GlueText } from "@gluestack-ui/themed";
+import { Button, Text } from "@gluestack-ui/themed";
 import { useUser } from "@/helpers/useUser";
 import { useSession } from "@/helpers/ctx";
 
@@ -24,8 +24,9 @@ export default function TabLayout() {
   const colorScheme = useColorScheme();
   const { state, dispatch } = useUser();
   const { signOut } = useSession();
+  const { width } = useWindowDimensions();
 
-  if (Platform.OS === "web") {
+  if (Platform.OS === "web" && width > 500) {
     return (
       <GestureHandlerRootView style={{ flex: 1 }}>
         <Drawer
@@ -45,8 +46,8 @@ export default function TabLayout() {
           <Drawer.Screen name="index" options={{ title: "Home" }} />
           <Drawer.Screen name="explore" options={{ title: "Explore" }} />
           <Drawer.Screen name="documents" options={{ title: "Documents" }} />
-          <Drawer.Screen name="genius" options={{ title: "Genius" }} />
-          <Drawer.Screen name="trash" options={{ title: "Trash" }} />
+          <Drawer.Screen name="list" options={{ title: "List" }} />
+          {/* <Drawer.Screen name="trash" options={{ title: "Trash" }} /> */}
         </Drawer>
       </GestureHandlerRootView>
     );
@@ -71,9 +72,9 @@ export default function TabLayout() {
                 // router.replace("/");
               }}
             >
-              <GlueText size="sm" color="$white">
+              <Text size="sm" color="$white">
                 Logout
-              </GlueText>
+              </Text>
             </Button>
           );
         },
@@ -82,7 +83,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Expo V3",
+          title: "Home",
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
         }}
       />
@@ -102,20 +103,20 @@ export default function TabLayout() {
       />
 
       <Tabs.Screen
-        name="genius"
+        name="list"
         options={{
-          title: "Genius",
+          title: "List",
           tabBarIcon: ({ color }) => <TabBarIcon name="star-o" color={color} />,
         }}
       />
 
-      <Tabs.Screen
+      {/* <Tabs.Screen
         name="trash"
         options={{
           title: "Trash",
           tabBarIcon: ({ color }) => <TabBarIcon name="trash" color={color} />,
         }}
-      />
+      /> */}
     </Tabs>
   );
 }

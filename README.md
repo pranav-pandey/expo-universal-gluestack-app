@@ -15,10 +15,10 @@ A comprehensive starter kit to kick-start your next universal application using 
 # Clone the repository
 
 ## Using SSH
-git clone git@github.com:pranav-pandey/universal-app-expo.git
+git clone git@git.geekyants.com:pranav/expo-universal-gluestack-app.git
 
 ## Using HTTPS
-git clone https://github.com/pranav-pandey/universal-app-expo.git
+git clone https://git.geekyants.com/pranav/expo-universal-gluestack-app.git
 
 # Install dependencies
 npx expo install

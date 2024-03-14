@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  Text as GlueText,
+  Text,
   Modal,
   ModalBackdrop,
   ModalHeader,
@@ -49,16 +49,16 @@ const GlueModal = ({ showModal, setShowModal }) => {
       <ModalBackdrop />
       <ModalContent maxWidth={"80%"} maxHeight={"80%"}>
         <ModalHeader>
-          <Heading size="lg">Select an Image here</Heading>
+          <Heading fontSize={"lg"}>List of uploaded images</Heading>
           <ModalCloseButton>
             <Icon as={CloseIcon} />
           </ModalCloseButton>
         </ModalHeader>
         <ModalBody>
           <ScrollView>
-            <GlueText pl={"$4"} pt={"$4"}>
+            <Text pl={"$4"} pt={"$4"}>
               Dec 2023
-            </GlueText>
+            </Text>
             <FlatList
               data={modalData.slice(0, 4)}
               horizontal
@@ -67,9 +67,9 @@ const GlueModal = ({ showModal, setShowModal }) => {
                 return <Card url={item.url} />;
               }}
             />
-            <GlueText pl={"$4"} pt={"$4"}>
+            <Text pl={"$4"} pt={"$4"}>
               Unknown
-            </GlueText>
+            </Text>
             <FlatList
               data={modalData.slice(4)}
               horizontal
