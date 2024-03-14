@@ -18,7 +18,7 @@ A comprehensive starter kit to kick-start your next universal application using 
 git clone git@github.com:pranav-pandey/expo-universal-gluestack-app.git
 
 ## Using HTTPS
-git clone [https://git.geekyants.com/pranav/expo-universal-gluestack-app.git](https://github.com/pranav-pandey/expo-universal-gluestack-app.git)
+git clone https://github.com/pranav-pandey/expo-universal-gluestack-app.git
 
 # Install dependencies
 npx expo install
